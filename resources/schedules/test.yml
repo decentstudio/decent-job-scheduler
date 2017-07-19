@@ -1,0 +1,6 @@
+environment: test
+
+schedules:
+  - job: test
+    cronTime: 60 * * * * *
+    runOnInit: true
