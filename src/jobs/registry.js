@@ -1,7 +1,11 @@
 import test from './test'
 
-const registry = {test: test}
+const jobRegistry = {test}
 
-export function getJob (job) {
-  return registry[job];
+function getJob (job) {
+  return jobRegistry[job];
 }
+
+const registry = {getJob}
+
+export default registry

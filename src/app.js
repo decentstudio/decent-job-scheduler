@@ -1,7 +1,7 @@
 import minimist from 'minimist'
-import * as cli from './foundation/cli'
-import * as schedule from './foundation/schedule'
-import * as registry from './jobs/registry'
+import cli from './foundation/cli'
+import schedule from './foundation/schedule'
+import registry from './jobs/registry'
 import log from 'npmlog'
 
 function swapJobFunction ({job, cronTime, runOnInit}) {

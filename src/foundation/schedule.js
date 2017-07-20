@@ -14,13 +14,17 @@ function getDriverFunction (driver) {
   return drivers[driver];
 }
 
-export function getSchedule (driver, environment) {
+function getSchedule (driver, environment) {
   const driverFunction = getDriverFunction(driver)
   return driverFunction(environment)
 }
 
-export function makeCronJob ({job, cronTime, runOnInit}) {
+function makeCronJob ({job, cronTime, runOnInit}) {
   return new cron.CronJob({onTick: job,
-                           cronTime: cronTime,
-                           runOnInit: runOnInit})
+                           cronTime,
+                           runOnInit})
 }
+
+const schedule = {makeCronJob, getSchedule}
+
+export default schedule;

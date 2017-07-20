@@ -1,4 +1,4 @@
-export function parseCommandLineArgs (parser, commandLineArgs) {
+function parseCommandLineArgs (parser, commandLineArgs) {
   return parser(commandLineArgs);
 }
 
@@ -6,5 +6,9 @@ function getCommandLineArg (arg, args) {
   return args[arg];
 }
 
-export const getEnvironment =
+const getEnvironment =
   getCommandLineArg.bind(null, 'environment');
+
+const cli = {parseCommandLineArgs, getEnvironment}
+
+export default cli;

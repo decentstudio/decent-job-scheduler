@@ -1,6 +1,6 @@
-import * as _ from 'lodash'
+import _ from 'lodash'
 import assert from 'assert';
-import * as schedule from '../dist/foundation/schedule'
+import schedule from '../dist/foundation/schedule'
 
 describe('Schedule Tests', () => {
   it('Should pull a schedule file from the filesystem based on the environment', () => {

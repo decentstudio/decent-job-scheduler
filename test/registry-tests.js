@@ -1,2 +1,2 @@
 import assert from 'assert';
-import * as schedule from '../dist/foundation/registry'
+import * as schedule from '../dist/jobs/registry'

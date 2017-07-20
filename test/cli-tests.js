@@ -1,6 +1,6 @@
 import assert from 'assert';
 import minimist from 'minimist';
-import * as cli from '../dist/foundation/cli';
+import cli from '../dist/foundation/cli';
 
 describe('Command Line Tests', () => {
   it('Should get the value of the --environment argument.', () => {
