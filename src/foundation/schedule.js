@@ -2,10 +2,19 @@ import * as yaml from 'js-yaml'
 import * as fs from 'fs'
 import * as cron from 'cron'
 
+function getScheduleFilePath (environment) {
+  return `./resources/schedules/${environment}.yml`
+}
+
+function getScheduleFileFormat () {
+  return 'utf8'
+}
+
 function getScheduleFromFilesystem (environment) {
-  const filePath = './resources/schedules/' + environment + '.yml',
-        format = 'utf8'
-  return yaml.safeLoad(fs.readFileSync(filePath, format))
+  const path = getScheduleFilePath(environment),
+        format = getScheduleFileFormat(),
+        file = fs.readFileSync(path, format)
+  return yaml.safeLoad(file)
 }
 
 const drivers = {filesystem: getScheduleFromFilesystem}
@@ -25,6 +34,9 @@ function makeCronJob ({job, cronTime, runOnInit}) {
                            runOnInit})
 }
 
-const schedule = {makeCronJob, getSchedule}
+const schedule = {makeCronJob,
+                  getSchedule,
+                  getScheduleFilePath,
+                  getScheduleFileFormat}
 
 export default schedule;

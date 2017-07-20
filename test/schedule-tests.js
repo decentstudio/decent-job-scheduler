@@ -12,4 +12,14 @@ describe('Schedule Tests', () => {
 
     assert.equal(true, _.isEqual(testSchedule, schedule.getSchedule('filesystem', environment)))
   })
+
+  it('Should build the standard schedule filepath', () => {
+    const filePath = './resources/schedules/test.yml'
+    assert.equal(filePath, schedule.getScheduleFilePath('test'))
+  })
+
+  it('Should return the schedule file format', () => {
+    const fileFormat = 'utf8'
+    assert.equal(fileFormat, schedule.getScheduleFileFormat())
+  })
 })
